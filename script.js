@@ -301,7 +301,7 @@ const wishes = [
   {
     name: "Fabián",
     message: "¡Directora, muchas felicidades en este día tan especial para usted!\n\nTal vez mi mensaje suene un poco repetitivo, pero quería agradecerle por darme la oportunidad de formar parte de este gran equipo. Al principio tenía miedo de no encajar, porque era mi primer trabajo formal y tampoco sabía cómo relacionarme con mis compañeras. Sin embargo, gracias a usted hoy me siento parte de una gran familia.\n\nYa llevo un año aquí y puedo decir con toda seguridad que el corazón de este gran equipo es usted. Le deseo muchas bendiciones a usted y a toda su familia. Que este nuevo año de vida esté lleno de salud, alegría y muchos momentos felices.\n\n¡Muchas felicidades, Directora! Que cumpla muchísimos años más. ^^",
-    signature: "Con cariño,\nFabian"
+    signature: "Con cariño,\nFabián"
   },
   {
     name: "Eduardo",
@@ -310,13 +310,13 @@ const wishes = [
   },
   {
     name: "Jenny Salazar",
-    message: "¡Feliz, feliz cumpleaños, Dire!\n\nDeseo que tenga un excelente cumpleaños, que se divierta muchísimo, que la apapachen un montón y que siempre conserve ese ánimo tan bonito con el que la conocemos. Gracias por la confianza y las atenciones que nos ha brindado a todas y todos. ¡Le mando un abrazo enorme!",
+    message: "¡Feliz, feliz cumpleaños, Direc!\n\nDeseo que tenga un excelente cumpleaños, que se divierta muchísimo, que la apapachen un montón y que siempre conserve ese ánimo tan bonito con el que la conocemos. Gracias por la confianza y las atenciones que nos ha brindado a todas y todos. ¡Le mando un abrazo enorme!",
     signature: "Con cariño,\nJenny Salazar"
   },
   {
     name: "Jenni Ávila",
     message: "¡Feliz cumpleaños! Deseo de todo corazón que este nuevo año de vida esté lleno de prosperidad, salud y paz. Aunque como Dirección no siempre hemos tenido un camino fácil, quiero agradecerle el apoyo que siempre nos brinda, tanto en el ámbito laboral como en el personal.\n\nEspero que su familia la consienta muchísimo en este día tan especial. Ha sido un verdadero placer conocerla y convivir con usted. Le mando un fuerte abrazo y le deseo un cumpleaños lleno de alegría y muchas bendiciones.",
-    signature: "Con cariño,\nJenny Avila"
+    signature: "Con cariño,\nJenni Avila"
   },
 ];
 
