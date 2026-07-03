@@ -1,0 +1,1403 @@
+* {
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@font-face {
+  font-family: "Latenza Script";
+  src: url("fonts/The Smile.otf") format("opentype");
+}
+
+:root {
+  --pink-1: #ffd6ff;
+  --pink-2: #f7c5ff;
+  --pink-3: #ffeefb;
+  --purple-1: #ac46a1;
+  --purple-2: #9d4edd;
+  --purple-3: #7b2cbf;
+  --gold: #c8932b;
+  --text: #3a2a1a;
+  --white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  overflow-x: hidden;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.82),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 255, 255, 0.3),
+      transparent 18%
+    ),
+    linear-gradient(
+      135deg,
+      var(--pink-1) 0%,
+      var(--pink-2) 45%,
+      var(--pink-3) 100%
+    );
+}
+
+body.book-mode {
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.86),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #fff1fb 0%, #f7c5ff 45%, #ffd6ff 100%);
+  transition: background 1.2s ease;
+}
+
+.hidden {
+  display: none !important;
+}
+
+button {
+  position: relative;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 15px 34px;
+  background: linear-gradient(135deg, var(--purple-1), var(--purple-2));
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1rem;
+  box-shadow: 0 12px 28px rgba(157, 78, 221, 0.35);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: buttonShine 3s infinite;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 16px 35px rgba(157, 78, 221, 0.45);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+  box-shadow: none;
+}
+
+button:disabled::after {
+  animation: none;
+}
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 28px;
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(255, 255, 255, 0.9),
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(224, 170, 255, 0.9),
+      transparent 25%
+    ),
+    linear-gradient(135deg, #ffc9f6 0%, #f4b6ff 45%, #ffe6fb 100%);
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(4px);
+  opacity: 0.45;
+  animation: floatGlow 7s ease-in-out infinite alternate;
+}
+
+.hero::before {
+  width: 260px;
+  height: 260px;
+  background: var(--white);
+  top: 8%;
+  left: 8%;
+}
+
+.hero::after {
+  width: 320px;
+  height: 320px;
+  background: #e0aaff;
+  right: 6%;
+  bottom: 8%;
+  animation-delay: 1.5s;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: min(92vw, 1180px);
+  min-height: 72vh;
+  background: rgba(255, 255, 255, 0.42);
+  padding: 55px 45px;
+  border-radius: 38px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 0 0 5px rgba(255, 255, 255, 0.18),
+    0 30px 90px rgba(128, 33, 150, 0.23),
+    inset 0 0 40px rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(18px);
+  animation: heroIn 1.2s ease both;
+}
+
+.small-text {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--purple-2);
+  font-weight: 800;
+  font-size: clamp(0.75rem, 2vw, 1.15rem);
+  animation: fadeUp 1s ease both;
+}
+
+.gold-line {
+  width: min(360px, 70%);
+  margin: 18px auto;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  animation: fadeUp 1s ease 0.15s both;
+}
+
+.gold-line::before,
+.gold-line::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: rgba(200, 147, 43, 0.75);
+}
+
+h1 {
+  font-size: clamp(4.5rem, 10vw, 8.8rem);
+  line-height: 0.78;
+  margin: 24px auto;
+  color: var(--purple-1);
+  font-family: "Latenza Script", cursive;
+  font-weight: normal;
+  text-shadow:
+    0 5px 0 rgba(255, 255, 255, 0.25),
+    0 12px 24px rgba(172, 70, 161, 0.23);
+  animation: fadeUp 1s ease 0.25s both;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2.3vw, 1.35rem);
+  margin: 18px 0 30px;
+  color: var(--purple-2);
+  animation: fadeUp 1s ease 0.4s both;
+}
+
+.decor {
+  position: absolute;
+  z-index: 2;
+  color: var(--purple-1);
+  opacity: 0.55;
+  animation: floatDecor 5s ease-in-out infinite alternate;
+}
+
+.decor-1 {
+  top: 12%;
+  left: 14%;
+  font-size: 2rem;
+}
+.decor-2 {
+  right: 15%;
+  top: 18%;
+  font-size: 2.4rem;
+}
+.decor-3 {
+  left: 8%;
+  bottom: 14%;
+  font-size: 3rem;
+}
+.decor-4 {
+  right: 8%;
+  bottom: 18%;
+  font-size: 3.4rem;
+}
+
+#openBtn {
+  animation: fadeUp 1s ease 0.6s both;
+}
+
+.music-btn {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 20;
+  font-size: 0.9rem;
+}
+
+.card-section,
+.gallery-section,
+.final-section,
+.book-section {
+  padding: 120px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.letter {
+  background: rgba(255, 255, 255, 0.72);
+  padding: 38px;
+  border-radius: 30px;
+  box-shadow: 0 18px 50px rgba(139, 51, 150, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(14px);
+  line-height: 1.8;
+  font-size: 1.08rem;
+  animation: fadeUp 0.9s ease;
+}
+
+.letter h2,
+.gallery-section h2,
+.final-section h2,
+.book-section h2 {
+  text-align: center;
+  color: var(--purple-1);
+  font-size: 2.1rem;
+}
+
+.firma {
+  text-align: right;
+  margin-top: 30px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 28px;
+  margin-top: 35px;
+}
+
+.polaroid {
+  background: var(--white);
+  padding: 14px 14px 25px;
+  border-radius: 16px;
+  box-shadow: 0 18px 42px rgba(139, 51, 150, 0.18);
+  transform: rotate(-1deg);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.polaroid:nth-child(even) {
+  transform: rotate(1.5deg);
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.04);
+  box-shadow: 0 24px 55px rgba(139, 51, 150, 0.25);
+}
+
+.polaroid img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.polaroid p {
+  text-align: center;
+  font-weight: 700;
+  color: var(--purple-2);
+}
+
+.final-section {
+  text-align: center;
+  min-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cake {
+  font-size: 5rem;
+  animation: cakeBounce 2s ease-in-out infinite;
+}
+
+.final-section p {
+  font-size: 1.3rem;
+  color: var(--purple-2);
+}
+
+#confetti,
+#petals {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#confetti {
+  z-index: 999;
+}
+
+#petals {
+  z-index: 1;
+}
+
+.real-book-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.real-book {
+  position: relative;
+  width: min(94vw, 820px);
+  min-height: 560px;
+  perspective: 1600px;
+  transform-style: preserve-3d;
+}
+
+.book-shadow {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  bottom: -22px;
+  height: 42px;
+  background: rgba(139, 51, 150, 0.23);
+  filter: blur(18px);
+  border-radius: 50%;
+  transition: all 1.1s ease;
+}
+
+.real-book.open .book-shadow {
+  left: 2%;
+  right: 2%;
+  bottom: -30px;
+  height: 58px;
+  background: rgba(139, 51, 150, 0.3);
+}
+
+.book-pages-stack {
+  position: absolute;
+  top: 22px;
+  right: 20px;
+  bottom: 22px;
+  left: 48%;
+  z-index: 1;
+  border-radius: 24px;
+  transform: translateZ(-10px);
+  pointer-events: none;
+}
+
+.book-pages-stack span {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(200, 147, 43, 0.35);
+  box-shadow: 0 10px 25px rgba(139, 51, 150, 0.08);
+}
+
+.book-pages-stack span:nth-child(1) {
+  transform: translate(8px, 8px);
+}
+.book-pages-stack span:nth-child(2) {
+  transform: translate(6px, 6px);
+}
+.book-pages-stack span:nth-child(3) {
+  transform: translate(4px, 4px);
+}
+.book-pages-stack span:nth-child(4) {
+  transform: translate(2px, 2px);
+}
+.book-pages-stack span:nth-child(5) {
+  transform: translate(0, 0);
+}
+
+.book-reading-page {
+  position: absolute;
+  top: 22px;
+  right: 20px;
+  bottom: 22px;
+  left: 48%;
+  z-index: 2;
+  min-height: 516px;
+  padding: 70px 42px 55px;
+  border-radius: 24px;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.88),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.92),
+      rgba(255, 214, 255, 0.78)
+    );
+  border: 1px solid rgba(200, 147, 43, 0.55);
+  box-shadow:
+    inset 0 0 35px rgba(255, 255, 255, 0.6),
+    0 20px 50px rgba(139, 51, 150, 0.12);
+  text-align: center;
+  animation: pageSettle 0.8s ease both;
+  backface-visibility: hidden;
+}
+
+.book-label {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 800;
+  color: var(--purple-2);
+}
+
+.book-reading-page h3 {
+  font-family: "Latenza Script", cursive;
+  font-weight: normal;
+  font-size: clamp(3.8rem, 8vw, 6rem);
+  line-height: 0.8;
+  margin: 10px 0;
+  color: var(--purple-1);
+}
+
+.book-divider {
+  width: min(320px, 75%);
+  margin: 20px auto;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.book-divider::before,
+.book-divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: rgba(200, 147, 43, 0.75);
+}
+
+#bookMessage {
+  max-width: 470px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.book-signature {
+  margin-top: 25px;
+  font-style: italic;
+  color: var(--purple-2);
+  font-weight: 600;
+}
+
+.book-counter {
+  position: absolute;
+  right: 34px;
+  bottom: 24px;
+  color: var(--purple-1);
+  font-weight: 800;
+}
+
+.book-controls {
+  margin-top: 28px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.book-controls.hidden {
+  display: none !important;
+}
+
+.book-cover-real {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  min-height: 560px;
+  width: 100%;
+  padding-left: 72px;
+  display: flex;
+  align-items: stretch;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition:
+    transform 1.25s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 1.25s ease;
+  backface-visibility: hidden;
+}
+
+.book-spine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 72px;
+  height: 100%;
+  border-radius: 28px 0 0 28px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.12) 0px,
+      rgba(255, 255, 255, 0.12) 2px,
+      transparent 2px,
+      transparent 8px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(120, 33, 132, 0.94),
+      rgba(172, 70, 161, 0.98),
+      rgba(157, 78, 221, 0.88)
+    );
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    inset -14px 0 18px rgba(255, 255, 255, 0.22),
+    inset 12px 0 24px rgba(63, 14, 73, 0.3),
+    0 10px 18px rgba(73, 22, 83, 0.18);
+}
+
+.book-spine::before,
+.book-spine::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(200, 147, 43, 0.85);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.book-spine::before {
+  top: 92px;
+}
+.book-spine::after {
+  bottom: 92px;
+}
+
+.book-cover-inner {
+  position: relative;
+  width: 100%;
+  min-height: 560px;
+  padding: 58px 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 28px 28px 0;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.72),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 214, 255, 0.95),
+      rgba(247, 197, 255, 0.82),
+      rgba(255, 241, 251, 0.9)
+    );
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    inset 0 0 42px rgba(255, 255, 255, 0.55),
+    inset 0 0 0 14px rgba(255, 255, 255, 0.16),
+    0 26px 70px rgba(139, 51, 150, 0.22);
+  overflow: hidden;
+  text-align: center;
+  flex: 1 1 auto;
+}
+
+.book-cover-inner::before {
+  content: "";
+  position: absolute;
+  inset: 24px;
+  border: 1px solid rgba(200, 147, 43, 0.7);
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+.book-cover-inner::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -70%;
+  width: 55%;
+  height: 180%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+  transform: rotate(18deg);
+  animation: bookShine 4.5s infinite;
+}
+
+.book-corner {
+  position: absolute;
+  color: var(--purple-1);
+  opacity: 0.5;
+  font-size: 2.1rem;
+}
+
+.corner-tl {
+  top: 34px;
+  left: 42px;
+}
+.corner-tr {
+  top: 34px;
+  right: 42px;
+}
+.corner-bl {
+  bottom: 34px;
+  left: 42px;
+}
+.corner-br {
+  bottom: 34px;
+  right: 42px;
+}
+
+.book-cover-small {
+  position: relative;
+  z-index: 2;
+  margin-top: 18px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: 800;
+  color: var(--purple-2);
+}
+
+.book-cover-title {
+  position: relative;
+  z-index: 2;
+  margin: 28px 0 20px;
+  color: var(--purple-1);
+}
+
+.book-cover-title span {
+  display: block;
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: 900;
+}
+
+.book-cover-title strong {
+  display: block;
+  margin-top: 10px;
+  font-family: "Latenza Script", cursive;
+  font-weight: normal;
+  font-size: clamp(3rem, 7vw, 4.8rem);
+  line-height: 0.9;
+  text-shadow:
+    0 5px 0 rgba(255, 255, 255, 0.2),
+    0 12px 24px rgba(172, 70, 161, 0.22);
+}
+
+.book-cover-seal {
+  position: relative;
+  z-index: 2;
+  width: 72px;
+  height: 72px;
+  margin: 22px auto;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--gold);
+  font-size: 2rem;
+  border: 1px solid rgba(200, 147, 43, 0.7);
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow:
+    inset 0 0 18px rgba(255, 255, 255, 0.55),
+    0 12px 26px rgba(139, 51, 150, 0.12);
+}
+
+.book-cover-dedication {
+  position: relative;
+  z-index: 2;
+  color: var(--purple-2);
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.7;
+}
+
+.book-cover-dedication span {
+  font-size: 0.95rem;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.book-open-btn {
+  position: relative;
+  z-index: 3;
+  margin-top: 22px;
+}
+
+.book-flash {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 214, 255, 0.55),
+    transparent 70%
+  );
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2000;
+}
+
+.book-flash.active {
+  animation: bookFlash 0.65s ease forwards;
+}
+
+.real-book.opening {
+  animation: bookZoomIn 1.15s ease forwards;
+}
+
+.real-book.opening .book-cover-real {
+  animation: coverHalfOpen 1.15s ease forwards;
+  transform-origin: left center;
+  filter: brightness(0.98);
+}
+
+.real-book.open {
+  width: min(94vw, 980px);
+  min-height: 560px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0;
+  animation: openBookAppear 0.75s ease both;
+}
+
+.real-book.open .book-cover-real,
+.real-book.open .book-reading-page {
+  position: relative;
+  inset: auto;
+  width: 50%;
+  min-height: 560px;
+}
+
+.real-book.open .book-cover-real {
+  order: 0;
+  padding-left: 72px;
+  transform: none;
+  filter: none;
+  pointer-events: none;
+  border-radius: 24px 0 0 24px;
+  overflow: hidden;
+}
+
+.real-book.open .book-reading-page {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0 24px 24px 0;
+  border-left: none;
+}
+
+.real-book.open .book-open-btn {
+  display: none;
+}
+
+.real-book.open .book-cover-inner {
+  min-height: 560px;
+  border-radius: 0;
+}
+
+.real-book.open .book-pages-stack {
+  display: none;
+}
+
+.real-book.open .book-spine {
+  left: 0;
+  right: auto;
+  z-index: 5;
+}
+
+.real-book.open .book-cover-real,
+.real-book.open .book-reading-page {
+  backface-visibility: hidden;
+}
+
+.book-content.hidden,
+.book-cover-real.hidden,
+.book-controls.hidden,
+.book-reading-page.hidden {
+  display: none !important;
+}
+
+.book-content h3 {
+  font-family: "Latenza Script", cursive;
+  font-weight: normal;
+  font-size: clamp(3.8rem, 8vw, 6rem);
+  line-height: 0.8;
+  margin: 10px 0;
+  color: var(--purple-1);
+}
+
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes buttonShine {
+  0% {
+    left: -80%;
+  }
+  45%,
+  100% {
+    left: 130%;
+  }
+}
+
+@keyframes floatGlow {
+  from {
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    transform: translateY(-24px) scale(1.08);
+  }
+}
+
+@keyframes floatDecor {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(-18px) rotate(8deg);
+  }
+}
+
+@keyframes cakeBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes bookZoomIn {
+  0% {
+    transform: scale(1);
+  }
+
+  55% {
+    transform: scale(1.045);
+  }
+
+  100% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes coverHalfOpen {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  55% {
+    transform: rotateY(-55deg) translateX(20px);
+  }
+
+  100% {
+    transform: rotateY(-72deg) translateX(38px);
+    opacity: 0.35;
+  }
+}
+
+@keyframes bookFlash {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes openBookAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+
+  55% {
+    opacity: 1;
+    transform: scale(1.025) translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pageSettle {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bookShine {
+  0% {
+    left: -80%;
+  }
+  45%,
+  100% {
+    left: 130%;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    padding: 18px;
+  }
+
+  .hero-content {
+    width: 94vw;
+    min-height: auto;
+    padding: 38px 22px;
+    border-radius: 30px;
+  }
+
+  h1 {
+    font-size: clamp(4rem, 18vw, 6rem);
+    line-height: 0.8;
+  }
+
+  .small-text {
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .decor-1,
+  .decor-2 {
+    font-size: 1.5rem;
+  }
+
+  .decor-3,
+  .decor-4 {
+    font-size: 2.2rem;
+  }
+
+  .card-section,
+  .gallery-section,
+  .final-section,
+  .book-section {
+    padding: 96px 16px;
+  }
+
+  .letter {
+    padding: 26px;
+  }
+
+  .gallery {
+    gap: 22px;
+  }
+
+  .polaroid img {
+    height: 220px;
+  }
+
+  .music-btn {
+    right: 12px;
+    bottom: 12px;
+    padding: 12px 18px;
+  }
+
+  .real-book {
+    width: min(96vw, 620px);
+    min-height: 520px;
+  }
+
+  .book-cover-real,
+  .book-reading-page {
+    min-height: 520px;
+  }
+
+  .book-cover-real {
+    padding-left: 58px;
+  }
+
+  .book-spine {
+    width: 58px;
+  }
+
+  .book-cover-inner {
+    min-height: 520px;
+    padding: 45px 24px;
+  }
+
+  .book-cover-title span {
+    font-size: 1.05rem;
+  }
+
+  .book-cover-title strong {
+    font-size: clamp(3rem, 14vw, 4.6rem);
+  }
+
+  .book-corner {
+    font-size: 1.6rem;
+  }
+
+  .book-pages-stack,
+  .book-reading-page {
+    inset: 18px 16px 18px 56px;
+  }
+
+  .book-reading-page {
+    padding: 46px 20px 38px;
+  }
+
+  #bookMessage {
+    font-size: 1.05rem;
+  }
+
+  .book-controls button {
+    padding: 12px 20px;
+  }
+
+  .real-book.open {
+    width: min(96vw, 720px);
+  }
+
+  .real-book.open .book-cover-real,
+  .real-book.open .book-reading-page {
+    min-height: 520px;
+    width: 50%;
+  }
+
+  .real-book.open .book-cover-real {
+    padding-left: 58px;
+  }
+
+  .real-book.open .book-spine {
+    width: 58px;
+  }
+
+  .real-book.open .book-cover-inner {
+    padding: 42px 18px;
+  }
+
+  .real-book.open .book-cover-title span {
+    font-size: 0.98rem;
+  }
+
+  .real-book.open .book-cover-title strong {
+    font-size: clamp(2.7rem, 12vw, 4rem);
+  }
+
+  .real-book.open .book-reading-page {
+    border-radius: 0 20px 20px 0;
+    padding: 42px 18px 32px;
+  }
+
+  .real-book.open .book-counter {
+    right: 18px;
+    bottom: 14px;
+  }
+}
+.book-cover-inner {
+  padding-top: 34px;
+  padding-bottom: 34px;
+}
+
+.book-cover-small {
+  margin: 0 0 8px;
+}
+
+.book-cover-title {
+  margin: 14px 0 10px;
+}
+
+.book-cover-title span {
+  font-size: clamp(1.2rem, 3vw, 1.65rem);
+}
+
+.book-cover-title strong {
+  font-size: clamp(3rem, 6vw, 4.1rem);
+  line-height: .82;
+}
+
+.book-cover-seal {
+  width: 58px;
+  height: 58px;
+  margin: 12px auto;
+}
+
+.book-cover-dedication {
+  margin: 6px 0;
+}
+
+.book-open-btn {
+  margin-top: 12px;
+  flex-shrink: 0;
+}
+
+/* Ajuste visual de portada cuando el libro está abierto */
+.real-book.open .book-cover-real {
+  width: 44%;
+}
+
+.real-book.open .book-reading-page {
+  width: 56%;
+}
+
+.real-book.open .book-cover-title span {
+  font-size: clamp(1rem, 2.1vw, 1.35rem);
+}
+
+.real-book.open .book-cover-title strong {
+  font-size: clamp(2.4rem, 4.2vw, 3.2rem);
+  line-height: .85;
+}
+
+.real-book.open .book-cover-small {
+  font-size: .78rem;
+  letter-spacing: 4px;
+}
+
+.real-book.open .book-cover-seal {
+  width: 52px;
+  height: 52px;
+  margin: 10px auto;
+}
+
+.real-book.open .book-cover-dedication {
+  font-size: .95rem;
+}
+
+.real-book.open .book-cover-dedication span {
+  font-size: .82rem;
+}
+/* Animación al cambiar páginas del libro */
+.book-reading-page.page-next {
+  animation: pageNext .55s ease;
+}
+
+.book-reading-page.page-prev {
+  animation: pagePrev .55s ease;
+}
+
+@keyframes pageNext {
+  0% {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg);
+  }
+
+  45% {
+    opacity: .35;
+    transform: translateX(-18px) rotateY(-10deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg);
+  }
+}
+
+@keyframes pagePrev {
+  0% {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg);
+  }
+
+  45% {
+    opacity: .35;
+    transform: translateX(18px) rotateY(10deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg);
+  }
+}
+
+.image-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(45, 10, 50, 0.78);
+  backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.image-modal img {
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 22px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .35);
+  background: white;
+}
+
+.image-modal-close {
+  position: fixed;
+  top: 22px;
+  right: 24px;
+  z-index: 3001;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.polaroid img {
+  cursor: zoom-in;
+}
+
+.book-last-page {
+  width: 100%;
+  text-align: center;
+}
+
+.director-photo {
+  width: 210px;
+  height: 210px;
+  margin: 18px auto 12px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #ffffff;
+  box-shadow:
+    0 15px 35px rgba(139, 51, 150, .22),
+    0 0 0 2px #c8932b;
+  display: block;
+  animation: fadeUp .8s ease both;
+}
+
+.book-last-page h3 {
+  font-family: "Latenza Script", cursive;
+  font-weight: normal;
+  font-size: clamp(3rem, 6vw, 4.8rem);
+  line-height: .8;
+  margin: 12px 0;
+  color: #ac46a1;
+}
+
+/* Reducir espacios entre secciones */
+.card-section,
+.book-section,
+.gallery-section,
+.final-section {
+  padding-top: 55px;
+  padding-bottom: 55px;
+}
+
+.final-section {
+  min-height: auto;
+  padding-top: 35px;
+  padding-bottom: 45px;
+}
+
+.gallery {
+  margin-top: 22px;
+}
+
+.book-section h2,
+.gallery-section h2,
+.final-section h2 {
+  margin-top: 0;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 700px) {
+  .card-section,
+  .book-section,
+  .gallery-section,
+  .final-section {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .final-section {
+    min-height: auto;
+  }
+}
