@@ -301,7 +301,7 @@ const wishes = [
   {
     name: "Jess",
     message: "Quiero desearle mucha salud, éxito y bienestar en este nuevo año que comienza. Le agradezco sinceramente su empatía y el apoyo que siempre nos brinda. Contar con una gestión tan comprensiva e involucrada con el equipo hace una gran diferencia en el día a día. Que tenga un muy feliz cumpleaños",
-    signature: "Con cariño,\Jess"
+    signature: "Con cariño,\nJess"
   },
   {
     name: "Fabián",
