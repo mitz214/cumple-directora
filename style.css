@@ -1401,3 +1401,78 @@ h1 {
     min-height: auto;
   }
 }
+
+/* Libro responsive para celular */
+@media (max-width: 700px) {
+  .real-book {
+    width: min(94vw, 430px);
+    min-height: auto;
+  }
+
+  .real-book.open {
+    width: min(94vw, 430px);
+    display: block;
+  }
+
+  .real-book.open .book-cover-real {
+    display: none;
+  }
+
+  .real-book.open .book-reading-page {
+    width: 100%;
+    min-height: 560px;
+    position: relative;
+    inset: auto;
+    border-radius: 26px;
+    padding: 42px 24px 48px;
+  }
+
+  .book-reading-page h3,
+  .real-book.open .book-reading-page h3 {
+    font-size: clamp(3.2rem, 17vw, 5.2rem);
+    line-height: .82;
+    margin: 10px 0 18px;
+  }
+
+  #bookMessage {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    max-width: 100%;
+  }
+
+  .book-label {
+    font-size: .78rem;
+    letter-spacing: 3px;
+  }
+
+  .book-divider {
+    width: 80%;
+    margin: 18px auto;
+  }
+
+  .book-signature {
+    margin-top: 20px;
+  }
+
+  .book-counter {
+    right: 22px;
+    bottom: 18px;
+  }
+
+  .book-controls {
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .book-controls button {
+    padding: 12px 18px;
+    font-size: .9rem;
+  }
+
+  .music-btn {
+    bottom: 18px;
+    right: 12px;
+    font-size: .82rem;
+    padding: 12px 16px;
+  }
+}
