@@ -264,6 +264,11 @@ const wishes = [
     signature: "Con cariño,\nBetty"
   },
   {
+    name: "Alma",
+    message: "Muchas felicidades Directora, que la pase muy bonito el día de hoy en compañía de las personas que más ama, le deseo que siga cultivando muchos éxitos y que su vida este llena de bendiciones",
+    signature: "Con cariño,\nAlma"
+  },
+  {
     name: "Claudia",
     message: "¡Queridísima, Direc! En este día tan especial, le agradecemos todos los esfuerzos que hace por cada una de nosotras, por guiarnos con el ejemplo y por mostrarnos siempre lo mejor de usted: su carisma, su bondad y su gran corazón. ¡Muchísimas felicidades!\n\nMi deseo más grande en este día es que siempre conserve esa hermosa sonrisa y ese amor con el que nos enseña a ser mejores personas. ¡Feliz cumpleaños! La queremos muchísimo y esperamos que tenga un día lleno de alegría, amor y muchas bendiciones.",
     signature: "Con cariño,\nClaudia"
