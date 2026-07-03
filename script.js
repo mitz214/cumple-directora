@@ -299,6 +299,11 @@ const wishes = [
     signature: "Con cariño,\nReyna"
   },
   {
+    name: "Jess",
+    message: "Quiero desearle mucha salud, éxito y bienestar en este nuevo año que comienza. Le agradezco sinceramente su empatía y el apoyo que siempre nos brinda. Contar con una gestión tan comprensiva e involucrada con el equipo hace una gran diferencia en el día a día. Que tenga un muy feliz cumpleaños",
+    signature: "Con cariño,\Jess"
+  },
+  {
     name: "Fabián",
     message: "¡Directora, muchas felicidades en este día tan especial para usted!\n\nTal vez mi mensaje suene un poco repetitivo, pero quería agradecerle por darme la oportunidad de formar parte de este gran equipo. Al principio tenía miedo de no encajar, porque era mi primer trabajo formal y tampoco sabía cómo relacionarme con mis compañeras. Sin embargo, gracias a usted hoy me siento parte de una gran familia.\n\nYa llevo un año aquí y puedo decir con toda seguridad que el corazón de este gran equipo es usted. Le deseo muchas bendiciones a usted y a toda su familia. Que este nuevo año de vida esté lleno de salud, alegría y muchos momentos felices.\n\n¡Muchas felicidades, Directora! Que cumpla muchísimos años más. ^^",
     signature: "Con cariño,\nFabián"
